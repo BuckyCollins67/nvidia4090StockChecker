@@ -9,7 +9,7 @@ async function start(){
     await page.screenshot({path: "4090WebsiteQuery.png"})
 
     const names = await page.evaluate(() => {
-        return Array.from(document.querySelector("#resultsDiv > div > div:nth-child(1) > div.product-details-grid-overview.\31 20 > div.clearfix.pdc-139.fe-pids > a")).map(x => x.textContent)
+        return Array.from(document.querySelector("div > a")).map(x => x.textContent)
     })
     await fs.writeFile("names.txt", names.join("\r\n"))
 
